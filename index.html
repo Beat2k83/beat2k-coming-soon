@@ -8,8 +8,10 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #050110; /* Deep dark purple/black background */
+            background-color: #050110; /* Matches your image background */
             height: 100vh;
+            /* Fix for mobile browsers address bar */
+            height: 100dvh; 
             width: 100vw;
             display: flex;
             justify-content: center;
@@ -17,7 +19,6 @@
             overflow: hidden;
         }
 
-        /* The Picture container handles the switching */
         picture {
             width: 100%;
             height: 100%;
@@ -26,25 +27,22 @@
             align-items: center;
         }
 
-        /* Common settings for both images */
         img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Forces the image to fill the screen */
+            /* 'contain' ensures the WHOLE image fits on screen */
+            object-fit: contain; 
             display: block;
         }
-
-        /* OPTIONAL: If you prefer the image NOT to be cropped, change 'cover' to 'contain' above */
     </style>
 </head>
 <body>
 
-    <!-- This tag checks the screen size and picks the right image -->
     <picture>
-        <!-- If screen is smaller than 768px (Phone), show mobile image -->
+        <!-- Mobile Image -->
         <source media="(max-width: 768px)" srcset="maintenance-mobile.jpg">
         
-        <!-- Otherwise (Desktop), show the normal image -->
+        <!-- Desktop Image -->
         <img src="maintenance.jpg" alt="Beat2K Coming Soon">
     </picture>
 
